@@ -1,0 +1,64 @@
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+*.xcworkspace
+!default.xcworkspace
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection
+# After new code Injection tools are installed and configured, this can be changed to `tmp/`
+tmp/
+
+# Swift Package Manager
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+# Package.resolved
+# *.xcodeproj
+# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
+# hence it is not needed unless you have added a package configuration file to your project
+.swiftpm
+
+# Local development
+.env
+.env.*
+
+# User-specific Xcode settings
+*.xcodeproj/xcuserdata/*.xcuserdatad/*
+
+# AppCode
+.idea/
+
+# App Store Connect API Key
+AuthKey_*.p8
+
+# App Store Connect API Key ID
+API_KEY_ID
+
+# App Store Connect Issuer ID
+ISSUER_ID

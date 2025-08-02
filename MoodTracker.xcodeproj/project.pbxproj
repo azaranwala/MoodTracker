@@ -7,18 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F99373C22E371B66000F7CA7 /* MoodTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99373C02E371B66000F7CA7 /* MoodTracker.xcdatamodeld */; };
 		F9D313062E36F2E200F82730 /* MoodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313052E36F2E200F82730 /* MoodTrackerApp.swift */; };
-		F9D313082E36F2E200F82730 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313072E36F2E200F82730 /* ContentView.swift */; };
 		F9D3130A2E36F2EE00F82730 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9D313092E36F2EE00F82730 /* Assets.xcassets */; };
 		F9D3130D2E36F2EE00F82730 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9D3130C2E36F2EE00F82730 /* Preview Assets.xcassets */; };
+		F9D313222E36F4EB00F82730 /* MoodTracker.png in Resources */ = {isa = PBXBuildFile; fileRef = F9D313152E36F4E800F82730 /* MoodTracker.png */; };
+		F9D313232E36F4EB00F82730 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313162E36F4E800F82730 /* PersistenceController.swift */; };
+		F9D313242E36F4EB00F82730 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313172E36F4E900F82730 /* AnalyticsView.swift */; };
+		F9D313252E36F4EB00F82730 /* MoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313182E36F4E900F82730 /* MoodEntryView.swift */; };
+		F9D313262E36F4EB00F82730 /* CustomUIIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313192E36F4E900F82730 /* CustomUIIntegration.swift */; };
+		F9D313272E36F4EB00F82730 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3131A2E36F4E900F82730 /* ContentView.swift */; };
+		F9D313282E36F4EB00F82730 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3131B2E36F4E900F82730 /* HistoryView.swift */; };
+		F9D313292E36F4EB00F82730 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3131C2E36F4EA00F82730 /* NotificationManager.swift */; };
+		F9D3132B2E36F4EB00F82730 /* UIStylingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3131E2E36F4EA00F82730 /* UIStylingManager.swift */; };
+		F9D3132C2E36F4EB00F82730 /* AppStoreAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3131F2E36F4EA00F82730 /* AppStoreAssets.swift */; };
+		F9D3132E2E36F4EB00F82730 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D313212E36F4EA00F82730 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F99373C12E371B66000F7CA7 /* MoodTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodTracker.xcdatamodel; sourceTree = "<group>"; };
+		F99373C42E3721CB000F7CA7 /* MoodTracker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MoodTracker; sourceTree = "<group>"; };
 		F9D313022E36F2E200F82730 /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D313052E36F2E200F82730 /* MoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerApp.swift; sourceTree = "<group>"; };
-		F9D313072E36F2E200F82730 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F9D313092E36F2EE00F82730 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9D3130C2E36F2EE00F82730 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F9D313152E36F4E800F82730 /* MoodTracker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodTracker.png; sourceTree = "<group>"; };
+		F9D313162E36F4E800F82730 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		F9D313172E36F4E900F82730 /* AnalyticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		F9D313182E36F4E900F82730 /* MoodEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodEntryView.swift; sourceTree = "<group>"; };
+		F9D313192E36F4E900F82730 /* CustomUIIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIIntegration.swift; sourceTree = "<group>"; };
+		F9D3131A2E36F4E900F82730 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F9D3131B2E36F4E900F82730 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F9D3131C2E36F4EA00F82730 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F9D3131E2E36F4EA00F82730 /* UIStylingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStylingManager.swift; sourceTree = "<group>"; };
+		F9D3131F2E36F4EA00F82730 /* AppStoreAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreAssets.swift; sourceTree = "<group>"; };
+		F9D313212E36F4EA00F82730 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +58,19 @@
 		F9D312F92E36F2E100F82730 = {
 			isa = PBXGroup;
 			children = (
+				F99373C02E371B66000F7CA7 /* MoodTracker.xcdatamodeld */,
+				F99373C42E3721CB000F7CA7 /* MoodTracker */,
+				F9D313172E36F4E900F82730 /* AnalyticsView.swift */,
+				F9D3131F2E36F4EA00F82730 /* AppStoreAssets.swift */,
+				F9D3131A2E36F4E900F82730 /* ContentView.swift */,
+				F9D313192E36F4E900F82730 /* CustomUIIntegration.swift */,
+				F9D3131B2E36F4E900F82730 /* HistoryView.swift */,
+				F9D313182E36F4E900F82730 /* MoodEntryView.swift */,
+				F9D313152E36F4E800F82730 /* MoodTracker.png */,
+				F9D3131C2E36F4EA00F82730 /* NotificationManager.swift */,
+				F9D313162E36F4E800F82730 /* PersistenceController.swift */,
+				F9D313212E36F4EA00F82730 /* SettingsView.swift */,
+				F9D3131E2E36F4EA00F82730 /* UIStylingManager.swift */,
 				F9D313042E36F2E200F82730 /* MoodTracker */,
 				F9D313032E36F2E200F82730 /* Products */,
 			);
@@ -52,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				F9D313052E36F2E200F82730 /* MoodTrackerApp.swift */,
-				F9D313072E36F2E200F82730 /* ContentView.swift */,
 				F9D313092E36F2EE00F82730 /* Assets.xcassets */,
 				F9D3130B2E36F2EE00F82730 /* Preview Content */,
 			);
@@ -126,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9D3130D2E36F2EE00F82730 /* Preview Assets.xcassets in Resources */,
+				F9D313222E36F4EB00F82730 /* MoodTracker.png in Resources */,
 				F9D3130A2E36F2EE00F82730 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +173,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9D313082E36F2E200F82730 /* ContentView.swift in Sources */,
+				F9D313232E36F4EB00F82730 /* PersistenceController.swift in Sources */,
+				F9D313282E36F4EB00F82730 /* HistoryView.swift in Sources */,
+				F9D313242E36F4EB00F82730 /* AnalyticsView.swift in Sources */,
+				F99373C22E371B66000F7CA7 /* MoodTracker.xcdatamodeld in Sources */,
+				F9D313292E36F4EB00F82730 /* NotificationManager.swift in Sources */,
+				F9D313272E36F4EB00F82730 /* ContentView.swift in Sources */,
+				F9D3132B2E36F4EB00F82730 /* UIStylingManager.swift in Sources */,
+				F9D3132E2E36F4EB00F82730 /* SettingsView.swift in Sources */,
+				F9D313262E36F4EB00F82730 /* CustomUIIntegration.swift in Sources */,
+				F9D3132C2E36F4EB00F82730 /* AppStoreAssets.swift in Sources */,
 				F9D313062E36F2E200F82730 /* MoodTrackerApp.swift in Sources */,
+				F9D313252E36F4EB00F82730 /* MoodEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +194,7 @@
 		F9D3130E2E36F2EE00F82730 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -211,6 +258,7 @@
 		F9D3130F2E36F2EE00F82730 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -278,8 +326,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,6 +336,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zaranwala.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,8 +360,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +370,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zaranwala.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +402,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F99373C02E371B66000F7CA7 /* MoodTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F99373C12E371B66000F7CA7 /* MoodTracker.xcdatamodel */,
+			);
+			currentVersion = F99373C12E371B66000F7CA7 /* MoodTracker.xcdatamodel */;
+			path = MoodTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F9D312FA2E36F2E100F82730 /* Project object */;
 }
