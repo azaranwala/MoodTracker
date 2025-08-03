@@ -1,5 +1,31 @@
 import SwiftUI
 import CoreData
+import UIKit
+
+// MARK: - Screen Size Detection
+enum ScreenSize {
+    static var width: CGFloat { UIScreen.main.bounds.width }
+    static var height: CGFloat { UIScreen.main.bounds.height }
+    
+    // Base dimensions for reference (iPhone 12 Pro - 6.1")
+    private static let baseWidth: CGFloat = 390
+    private static let baseHeight: CGFloat = 844
+    
+    // Scale factor based on screen width
+    static var scaleFactor: CGFloat {
+        min(width / baseWidth, height / baseHeight)
+    }
+    
+    // Dynamic font size calculator
+    static func dynamicFontSize(_ size: CGFloat) -> CGFloat {
+        return size * scaleFactor
+    }
+    
+    // Dynamic padding calculator
+    static func dynamicPadding(_ size: CGFloat) -> CGFloat {
+        return size * scaleFactor
+    }
+}
 
 // MARK: - Mood Description Helper
 private func moodDescription(for value: Int) -> String {
@@ -12,12 +38,21 @@ private func moodDescription(for value: Int) -> String {
     default: return ""
     }
 }
-
+//Create a MoodEntryView struct
 struct MoodEntryView: View {
     @Environment(\.managedObjectContext) var viewContext
     @State private var selectedDate = Date()
     @State private var moodValue = 5
     @State private var note = ""
+    
+    // Dynamic sizing properties
+    private var isSmallScreen: Bool {
+        ScreenSize.width < 375 // iPhone SE, 5s, etc.
+    }
+    
+    private var isLargeScreen: Bool {
+        ScreenSize.width >= 428 // iPhone 14 Pro Max, 13 Pro Max, etc.
+    }
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \MoodEntry.dateTime, ascending: false)],
@@ -40,55 +75,55 @@ struct MoodEntryView: View {
     }
     
     var body: some View {
-        VStack {
-            // Main content in a scroll view
-            ScrollView {
-                VStack(spacing: 20) {
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                // Main content in a scroll view
+                ScrollView {
+                    VStack(spacing: 20) {
                     // Header with date
                     HStack {
                         Text(selectedDate, formatter: dateFormatter)
-                            .font(.headline)
+                            .font(.system(size: ScreenSize.dynamicFontSize(16)))
                         
                         Spacer()
                         
                         Button(action: { selectedDate = Date() }) {
                             Text("Today")
+                                .font(.system(size: ScreenSize.dynamicFontSize(16)))
                                 .foregroundColor(.purple)
                         }
                     }
                     .padding(.horizontal)
                     
-                    // Calendar - Simplified DatePicker
+                    // Calendar - Responsive DatePicker
                     DatePicker("Select Date", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
                         .datePickerStyle(.graphical)
-                        .padding()
+                        .scaleEffect(isSmallScreen ? 0.9 : 1.0) // Scale down for smaller screens
+                        .padding(.vertical, isSmallScreen ? 5 : 10)
                         .background(Color(.systemBackground))
                         .cornerRadius(10)
-                        .padding(.horizontal)
+                        .padding(.horizontal, ScreenSize.dynamicPadding(16))
                     
                     // Mood slider section
                     VStack(alignment: .leading, spacing: 10) {
                         Text("How are you feeling?")
-                            .font(.headline)
-                            .padding(.horizontal)
+                            .font(.system(size: ScreenSize.dynamicFontSize(18), weight: .semibold))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, ScreenSize.dynamicPadding(16))
+                            .padding(.top, isSmallScreen ? 5 : 10)
                         
                         // Mood scale container
                         VStack(spacing: 10) {
                             // Current mood display
                             HStack {
-                                // Get emoji for current mood value
-                                let emojiForMood: (Int) -> String = { value in
-                                    let emojis = ["😢", "😞", "😐", "🙂", "😊", "😄", "🤩"]
-                                    let index = min(max(0, value / 2), emojis.count - 1)
-                                    return emojis[index]
-                                }
+                                // Display mood emoji
                                 Text(emojiForMood(moodValue))
-                                    .font(.system(size: 40))
-                                    .frame(width: 50, alignment: .center)
+                                    .font(.system(size: isSmallScreen ? 32 : 40))
+                                    .frame(width: isSmallScreen ? 40 : 50, alignment: .center)
                                 
+                                // Display mood value
                                 Text("\(moodValue)/10")
-                                    .font(.largeTitle)
-                                    .fontWeight(.bold)
+                                    .font(.system(size: ScreenSize.dynamicFontSize(24), weight: .bold))
                                     .foregroundColor(.purple)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -98,13 +133,14 @@ struct MoodEntryView: View {
                             VStack(spacing: 20) {
                                 // Large emoji display
                                 Text(emojiForMood(moodValue))
-                                    .font(.system(size: 60))
-                                    .padding(.bottom, 5)
+                                    .font(.system(size: isSmallScreen ? 50 : 60))
+                                    .padding(.bottom, isSmallScreen ? 2 : 5)
                                 
-                                // Debug info
+                                // Debug info - Hidden in production
                                 Text("Mood: \(moodValue)/10")
-                                    .font(.headline)
+                                    .font(.system(size: ScreenSize.dynamicFontSize(14)))
                                     .foregroundColor(.purple)
+                                    .opacity(0.7) // Make it more subtle
                                 
                                 // Simple slider implementation
                                 VStack {
@@ -123,13 +159,13 @@ struct MoodEntryView: View {
                                     }
                                     .labelsHidden()
                                     .tint(.purple)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 8)
+                                    .padding(.horizontal, ScreenSize.dynamicPadding(12))
+                                    .padding(.vertical, ScreenSize.dynamicPadding(8))
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color.gray.opacity(0.1))
                                     )
-                                    .frame(height: 60) // Ensure touch target is large enough
+                                    .frame(height: isSmallScreen ? 50 : 60) // Adjust height based on screen size
                                     
                                     // Visual indicator of mood level
                                     HStack {
@@ -145,16 +181,17 @@ struct MoodEntryView: View {
                                 
                                 // Mood description
                                 Text(moodDescription(for: moodValue))
-                                    .font(.headline)
+                                    .font(.system(size: ScreenSize.dynamicFontSize(16), weight: .semibold))
                                     .foregroundColor(.purple)
-                                    .padding(.top, 5)
+                                    .padding(.top, isSmallScreen ? 2 : 5)
                             }
-                            .padding()
+                            .padding(ScreenSize.dynamicPadding(12))
                             .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .fill(Color(.secondarySystemBackground))
                             )
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, ScreenSize.dynamicPadding(10))
+                            .padding(.vertical, isSmallScreen ? 5 : 10)
                         }
                     }
                     .padding(.vertical, 10)
@@ -162,14 +199,17 @@ struct MoodEntryView: View {
                     // Note input
                     TextField("Add a note...", text: $note)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                        .font(.system(size: ScreenSize.dynamicFontSize(16)))
+                        .padding(.horizontal, ScreenSize.dynamicPadding(16))
+                        .padding(.vertical, isSmallScreen ? 5 : 10)
                     
                     // Recent entries header
                     if !recentEntries.isEmpty {
                         Text("Recent Entries")
-                            .font(.headline)
+                            .font(.system(size: ScreenSize.dynamicFontSize(18), weight: .semibold))
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
+                            .padding(.horizontal, ScreenSize.dynamicPadding(16))
+                            .padding(.top, isSmallScreen ? 10 : 15)
                         
                         ForEach(Array(recentEntries.prefix(3)), id: \.self) { entry in
                             MoodEntryRow(entry: entry)
@@ -177,32 +217,37 @@ struct MoodEntryView: View {
                         }
                     }
                     
-                    Spacer()
+                    }
+                    .padding(.top)
+                    .padding(.bottom, 80) // Add bottom padding to prevent content from being hidden behind the button
                 }
-                .padding(.top)
-            }
-            
-            // Fixed Save Button at bottom - iOS 16+ compatible
-            Button(action: saveMoodEntry) {
-                HStack {
+                
+                // Fixed Save Button at bottom - outside of ScrollView
+                VStack {
                     Spacer()
-                    Text("💾 SAVE MOOD ENTRY")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                    Spacer()
+                    Button(action: saveMoodEntry) {
+                        HStack {
+                            Spacer()
+                            Text("💾 SAVE MOOD ENTRY")
+                                .font(.system(size: ScreenSize.dynamicFontSize(16), weight: .semibold))
+                                .foregroundColor(.white)
+                                .padding(.vertical, isSmallScreen ? 12 : 16)
+                            Spacer()
+                        }
+                        .background(Color.purple)
+                        .cornerRadius(10)
+                        .padding(.horizontal, ScreenSize.dynamicPadding(16))
+                        .padding(.bottom, isSmallScreen ? 16 : 24)
+                    }
+                    .background(Color(.systemBackground).shadow(radius: 0.5))
+                    .frame(maxWidth: .infinity)
                 }
-                .background(Color.purple)
-                .cornerRadius(10)
-                .padding()
+                .frame(height: 80) // Fixed height for the button container
             }
-            .background(Color(.systemBackground))
         }
         .navigationTitle("Mood Tracker")
     }
-    
-    // MARK: - Core Data Operations
-    
+
     func saveMoodEntry() {
         print("💾 Attempting to save mood entry...")
         
